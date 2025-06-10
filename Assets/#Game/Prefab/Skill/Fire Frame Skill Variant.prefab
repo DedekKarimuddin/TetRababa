@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &135549475953833281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2942180105401491559}
+  - component: {fileID: 848654381260523904}
+  - component: {fileID: 8450694253564300340}
+  m_Layer: 0
+  m_Name: Colider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2942180105401491559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135549475953833281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.07531979, y: -0.9912649, z: 0.017015142, w: -0.106917985}
+  m_LocalPosition: {x: -0.43, y: 0.31, z: 0.79002005}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6707822449837830073}
+  m_LocalEulerAnglesHint: {x: 1.01, y: -192.39, z: -8.8}
+--- !u!65 &848654381260523904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135549475953833281}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.45425498, y: 0.3923447, z: 1.6512764}
+  m_Center: {x: -0.27287373, y: -0.30382696, z: -0.3256347}
+--- !u!114 &8450694253564300340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135549475953833281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37673902bac7a834ba402ab5ff9118fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3419827021871620590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +124,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8242522401943440983, guid: d6a5e9f4af34dc14996977ceb750192c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3955608103705055534}
+    - targetCorrespondingSourceObject: {fileID: 8242522401943440983, guid: d6a5e9f4af34dc14996977ceb750192c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2942180105401491559}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1999357624142138949, guid: d6a5e9f4af34dc14996977ceb750192c, type: 3}
       insertIndex: -1
