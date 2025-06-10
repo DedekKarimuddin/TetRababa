@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate void OnTakeDamageDelegate(float hearts);
+    public event OnTakeDamageDelegate OnTakeDamage;
+
     [SerializeField] private int playerNumber = 1;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private int hearts = 3;
@@ -60,10 +63,12 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage()
     {
         hearts--;
+        OnTakeDamage?.Invoke(hearts);
         if (hearts <= 0)
         {
             Debug.Log("Player " + playerNumber + " defeated.");
             gameObject.SetActive(false);
         }
+      
     }
 }
