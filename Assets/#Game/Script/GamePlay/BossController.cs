@@ -15,14 +15,14 @@ public class BossController : MonoBehaviour
 
     [Header("Attack")]
     [SerializeField] private Transform firePoint;
-    [SerializeField] private float attackCooldown = 5f;       
-    
+    [SerializeField] private float attackCooldown = 5f;
+    [SerializeField] private string[] arrSkill;
+
     private bool isAttack = false;
     private float attackTimer = 0f;
 
     private Transform player1 => GameManager.Instance.Player1.gameObject.transform;
     private Transform player2 => GameManager.Instance.Player2.gameObject.transform;
-
 
     void Start()
     {
@@ -57,13 +57,15 @@ public class BossController : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(targetPos.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
 
-        BaseSkill skill = Instantiate(GameManager.Instance.GetSkill("fire_flame"), firePoint.position, firePoint.rotation, firePoint) as BaseSkill ;
+        BaseSkill skill = Instantiate(GameManager.Instance.GetSkill(arrSkill[Random.Range(0,arrSkill.Length)]), firePoint.position, firePoint.rotation, firePoint) as BaseSkill;
 
         skill.ExecuteAttack(targetPos);
 
         yield return new WaitForSeconds(skill.Duration);
-       
+
+     
         isAttack = false;
+        attackTimer = 0;
         attackCooldown = 5;
     }
 

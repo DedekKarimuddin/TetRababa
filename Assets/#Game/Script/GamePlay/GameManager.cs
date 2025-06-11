@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private BossController boss;
     [SerializeField] private PlayerController player1;
     [SerializeField] private PlayerController player2;
     [SerializeField] private List<BaseSkill> listSkill;
 
     public PlayerController Player1 => player1;
     public PlayerController Player2 => player2;
+    public BossController Boss => boss;
 
 
     private void Awake()
