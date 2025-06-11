@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Game.Skill;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,7 +23,12 @@ public class GameManager : MonoBehaviour
     {
         if (!player1.gameObject.activeSelf && !player2.gameObject.activeSelf)
         {
-            Debug.Log("Both players defeated. Game Over.");
+            MatchData matchData = SaveSystem.LoadMatch();
+            matchData.lastIswin = false;
+            matchData.scorePlayer1 += 2;
+            matchData.scorePlayer2 += 3;
+            SaveSystem.SaveMatch(matchData);
+            SceneManager.LoadScene("EndGame");
         }
     }
 

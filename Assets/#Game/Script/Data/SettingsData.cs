@@ -7,3 +7,5 @@ public class SettingsData
     public string selectedCharacterPlayer1 = "Default1";
     public string selectedCharacterPlayer2 = "Default2";
 }
+
+
