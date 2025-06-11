@@ -1346,6 +1346,7 @@ MonoBehaviour:
   arrSkill:
   - fire_flame
   - eagle
+  - rocket
 --- !u!54 &1383720716
 Rigidbody:
   m_ObjectHideFlags: 0

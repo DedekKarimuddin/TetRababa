@@ -5,10 +5,11 @@ namespace Game.Skill
 
     public class RocketBehavior : MonoBehaviour
     {
-        public Transform target;
-        public float speed = 10f;
-        public bool isThrowable = false;
-        public GameObject explosionEffect;
+        [SerializeField] private float speed = 10f;
+        [SerializeField] private GameObject explosionEffect;
+
+        public Transform target { get; set; }
+        public bool isThrowable { get; set; }
 
         private bool isReturning = false;
 
@@ -22,9 +23,14 @@ namespace Game.Skill
 
         void OnTriggerEnter(Collider other)
         {
-            if (!isReturning && !isThrowable)
+            if (!isReturning && !isThrowable && other.gameObject.CompareTag("Player"))
             {
+                PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
+                if (player != null)
+                    player.TakeDamage();
                 Explode();
+
             }
         }
 

@@ -9,20 +9,23 @@ public class BossController : MonoBehaviour
     [SerializeField] private float moveRadius = 10f;
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float hoverSpeed = 2f;
-
-    private Vector3 centerPosition;
-    private float moveTimer;
-
+   
     [Header("Attack")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private float attackCooldown = 5f;
     [SerializeField] private string[] arrSkill;
+
+    private Vector3 centerPosition;
+    private float moveTimer;
+
 
     private bool isAttack = false;
     private float attackTimer = 0f;
 
     private Transform player1 => GameManager.Instance.Player1.gameObject.transform;
     private Transform player2 => GameManager.Instance.Player2.gameObject.transform;
+
+    public Transform FirePoint => firePoint;
 
     void Start()
     {
