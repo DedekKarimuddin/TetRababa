@@ -89,11 +89,21 @@ public class BossController : MonoBehaviour
 
     Vector3 GetPlayersCenter()
     {
+        if (!player1.gameObject.activeInHierarchy)
+            return player2.position;
+        else if (!player2.gameObject.activeInHierarchy)
+            return player1.position;
+
         return (player1.position + player2.position) / 2f;
     }
 
     Transform GetPlayerTarget()
     {
+        if (!player1.gameObject.activeInHierarchy)
+            return player2;
+        else if (!player2.gameObject.activeInHierarchy)
+            return player1;
+
         int random = Random.Range(0,2);
 
         switch(random)
