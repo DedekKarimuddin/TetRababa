@@ -17,6 +17,7 @@ namespace Game.Skill
             }
         }
 
+
         private void StopFlame()
         {
             if (flameEffect != null)

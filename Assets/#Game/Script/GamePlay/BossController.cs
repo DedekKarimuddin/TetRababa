@@ -9,20 +9,23 @@ public class BossController : MonoBehaviour
     [SerializeField] private float moveRadius = 10f;
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float hoverSpeed = 2f;
+   
+    [Header("Attack")]
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float attackCooldown = 5f;
+    [SerializeField] private string[] arrSkill;
 
     private Vector3 centerPosition;
     private float moveTimer;
 
-    [Header("Attack")]
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float attackCooldown = 5f;       
-    
+
     private bool isAttack = false;
     private float attackTimer = 0f;
 
     private Transform player1 => GameManager.Instance.Player1.gameObject.transform;
     private Transform player2 => GameManager.Instance.Player2.gameObject.transform;
 
+    public Transform FirePoint => firePoint;
 
     void Start()
     {
@@ -57,13 +60,15 @@ public class BossController : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(targetPos.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
 
-        BaseSkill skill = Instantiate(GameManager.Instance.GetSkill("fire_flame"), firePoint.position, firePoint.rotation, firePoint) as BaseSkill ;
+        BaseSkill skill = Instantiate(GameManager.Instance.GetSkill(arrSkill[Random.Range(0,arrSkill.Length)]), firePoint.position, firePoint.rotation, firePoint) as BaseSkill;
 
         skill.ExecuteAttack(targetPos);
 
         yield return new WaitForSeconds(skill.Duration);
-       
+
+     
         isAttack = false;
+        attackTimer = 0;
         attackCooldown = 5;
     }
 
@@ -87,11 +92,21 @@ public class BossController : MonoBehaviour
 
     Vector3 GetPlayersCenter()
     {
+        if (!player1.gameObject.activeInHierarchy)
+            return player2.position;
+        else if (!player2.gameObject.activeInHierarchy)
+            return player1.position;
+
         return (player1.position + player2.position) / 2f;
     }
 
     Transform GetPlayerTarget()
     {
+        if (!player1.gameObject.activeInHierarchy)
+            return player2;
+        else if (!player2.gameObject.activeInHierarchy)
+            return player1;
+
         int random = Random.Range(0,2);
 
         switch(random)

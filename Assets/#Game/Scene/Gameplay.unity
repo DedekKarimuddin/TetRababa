@@ -1342,7 +1342,38 @@ MonoBehaviour:
   moveSpeed: 2
   hoverSpeed: 2
   firePoint: {fileID: 292073490}
-  attackCooldown: 5
+  attackCooldown: 2
+  arrSkill:
+  - fire_flame
+  - eagle
+  - rocket
+--- !u!54 &1383720716
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383720713}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1409856390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1417,6 +1448,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 751762560753533063, guid: 94666c70f395f7a4fb367b07c0557373, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1383720715}
+    - targetCorrespondingSourceObject: {fileID: 751762560753533063, guid: 94666c70f395f7a4fb367b07c0557373, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1383720716}
   m_SourcePrefab: {fileID: 100100000, guid: 94666c70f395f7a4fb367b07c0557373, type: 3}
 --- !u!1 &1504158984
 GameObject:
@@ -2318,6 +2352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 143777770}
     m_Modifications:
+    - target: {fileID: 108081568236682790, guid: 439f351ad151e7f4594c393766edf08c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1383720715}
     - target: {fileID: 108081568236682790, guid: 439f351ad151e7f4594c393766edf08c, type: 3}
       propertyPath: player1
       value: 
